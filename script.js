@@ -18,8 +18,14 @@ arr.forEach(button => {
             input.value = string;
         }
         else{
-            string += e.target.innerHTML;
+            let operators = ['+','-','*','/','%'];
+
+            if (operators.includes(e.target.innerHTML) && operators.includes(string.slice(-1))){
+                string = string.slice(0, -1) + e.target.innerHTML;
+            }else{
+                string += e.target.innerHTML;
+            }
             input.value = string;
         }
-    })
+    });
 });
